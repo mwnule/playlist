@@ -3,20 +3,18 @@ const prompt = require("prompt-sync")({sigint: true});
 const playlist = []
 
 const modelo = () => {
-    // objeto criado com os dados que uma música normalmente tem, como nome, artista e album
-    let musica = {
-        nome: prompt("Qual o nome da música?"),
-        artista: prompt("Qual o artista da música?"),
-        album: prompt("A música faz parte de quê álbum?")
-    }
+    let nome = prompt("Qual o nome da música? ");
+    let artista =  prompt("Qual o artista da música? ");
+    let album =  prompt("A música faz parte de quê álbum? ");
 
     // verificação para ver se o usuário preencheu todos os dados corretamente
     if (nome !== "" && artista !== "" && album !=="") {
-        return {
-            nome,
-            artista,
-            album
+        let musica = {
+            nome: nome,
+            artista: artista,
+            album: album
         }
+        return musica;
     } else {
         console.log("Dados inválidos!")
         return false;
@@ -34,11 +32,16 @@ function adicionar() {
         console.log("Música adicionada!")
     }
 
-
-
 }
 
 function listar() {
+    if (playlist.length === 0) {
+        console.log("Não existe nenhuma mśuica adicionada na sua playlist!")
+    } else {
+        playlist.forEach((musica, index) => {
+            console.log(`${index + 1}. ${musica.nome} - ${musica.artista}, ${musica.album}`);
+        });
+    }
 
 }
 

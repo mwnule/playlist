@@ -8,7 +8,8 @@ const {
   } = require("./modulos.js");
 
   while (true) {
-    console.log (`Seja bem-vindo(a) ao Player.JSON!
+    console.log (`
+    Seja bem-vindo(a) ao Player.JSON!
     1. Adicionar nova música a playlist
     2. Listar músicas da playlist
     3. Atualizar música da playlist
@@ -32,9 +33,11 @@ const {
             break;
         case 0:
             console.log("Saindo do menu!")
+            process.exit();
             break;
         default:
             console.log("Você deve digitar uma opção válida!")
+            return;
             break;
     }
 }
